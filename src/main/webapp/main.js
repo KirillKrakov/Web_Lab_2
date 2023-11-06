@@ -6,7 +6,7 @@ let r;
 let send_type;
 
 window.addEventListener("load", () => {
-    draw();
+    draw(5);
     clickedPoints = loadPoints();
     for (const point of clickedPoints) {
         drawPoint(point.x, point.y, r, false);
@@ -143,7 +143,7 @@ rElement.addEventListener('input', function () {
     if (isNaN(r)) {
         const ctx = canvas.getContext("2d");
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw();
+        draw(5);
         drawAllPoints();
     } else if (isRadiusAcceptable(r)) {
         drawShapesByR(r);
