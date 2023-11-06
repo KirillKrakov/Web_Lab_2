@@ -8,7 +8,7 @@ const yAxisLabel = "Y";
 let xAxisScale;
 let yAxisScale;
 
-function draw() {
+function draw(r) {
     if (canvas.getContext) {
         ctx.fillStyle = "black";
         ctx.strokeStyle = "black";
@@ -17,8 +17,8 @@ function draw() {
         let canvasWidth = canvas.width;
         let canvasHeight = canvas.height;
 
-        xAxisScale = canvasWidth / 10;
-        yAxisScale = canvasHeight / 10;
+        xAxisScale = canvasWidth / (2*r);
+        yAxisScale = canvasHeight / (2*r);
 
         // Определяем начальную точку
         let originX = canvasWidth / 2;
@@ -105,7 +105,7 @@ function drawShapesByR(r) {
     if (canvas.getContext) {
         // очищаем поле для рисунка
         ctx.clearRect(0, 0, canvas.width, canvas.height);
-        draw();
+        draw(r);
 
         let startPointInAxes = {x: 0, y: 0};
         let startPointInCanvas = axesToCanvasCoordinates(startPointInAxes.x, startPointInAxes.y, canvas);
